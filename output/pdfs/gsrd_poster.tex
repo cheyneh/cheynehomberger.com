@@ -1,0 +1,154 @@
+% UF beamer a1 poster template - Cheyne Homberger - cheyne42@ufl.edu
+% requires files: icubedlogo.pdf, UFlogo.pdf, beamerthemeUF.sty
+% requires packages beamer, beamerposter, type1cm, and palatino
+
+% put all image files and .sty file in same folder and run pdflatex
+
+% Format is: header, three big columns, footer. 
+% Information is added in 'blocks': use 
+% \begin{block}{block title} info \end{block}
+% only change stuff between %=====% lines 
+% (unless you know what you're doing)
+
+
+
+\documentclass[final,10pt]{beamer}
+\boldmath
+\usepackage{amsmath,amsthm, amssymb}
+\usepackage[orientation=landscape,size=a1,scale=1]{beamerposter}
+\usepackage{palatino}
+\usetheme{UF}
+\newcommand{\ReplaceWithContent}{\vspace{12cm}} 
+\newlength{\columnheight} 
+% ===== Fill this stuff out ===================================== %
+
+
+  \title{Your Title}
+
+  % if title is 2 lines, change column height to 50cm
+  % otherwise leave it as is
+  \setlength{\columnheight}{52cm}
+
+  \author{Your Name}
+  \institute{University of Florida} 
+  \date{\today}
+  \newcommand{\department}{Department of Mathematics}
+  \newcommand{\email}{youremail@ufl.edu}
+
+
+% =============================================================== %
+\begin{document}
+\begin{frame}
+\begin{columns}
+\begin{column}{.33\textwidth}
+\minipage[c][\columnheight][c]{.97\columnwidth}
+%===================Change things here===============================%
+
+
+  \begin{block}{Introduction}
+  
+    \ReplaceWithContent % replace this with your material 
+    
+  \end{block}
+
+
+  \vfill % spaces blocks equally
+
+
+  \begin{block}{More introduction} 
+
+    \ReplaceWithContent
+
+  \end{block} 
+
+
+  \vfill
+
+  
+  \begin{block}{Even more introduction}
+
+    \ReplaceWithContent
+
+  \end{block} 
+
+
+%==================================================================%
+\endminipage
+\end{column}
+\begin{column}{.34\textwidth}
+\minipage[c][\columnheight][c]{.97\columnwidth}
+%===================Change things here===============================%
+
+
+  \begin{block}{Maybe a picture?}
+
+    % include images with this command:
+    % \includegraphics[with=8cm]{filename.jpg}
+
+    \ReplaceWithContent
+    \ReplaceWithContent
+  \end{block}
+
+
+  \vfill
+
+
+  \begin{block}{Results}
+    \ReplaceWithContent
+  \end{block}
+
+
+%==================================================================%
+\endminipage
+\end{column}
+\begin{column}{.33\textwidth}
+\minipage[c][\columnheight][c]{.97\columnwidth}
+%===================Change things here===============================%
+    
+
+  \begin{block}{Some More Results}
+
+    \ReplaceWithContent
+
+  \end{block}
+
+
+    \vfill 
+    
+
+  \begin{block}{Conclusions}
+
+    \ReplaceWithContent
+
+  \end{block}
+
+
+  \vfill 
+
+
+  \begin{block}{References}
+    {\small
+    \begin{itemize}
+      \item Reference 1
+
+      \item Reference 2
+    \end{itemize}
+    }
+
+  \end{block}
+
+
+  \vfill
+
+
+  \begin{itemize}
+    \item Joint work with ...
+  \end{itemize}
+
+
+%==================================================================%
+\endminipage
+\end{column}
+\end{columns}
+\end{frame}
+\end{document}

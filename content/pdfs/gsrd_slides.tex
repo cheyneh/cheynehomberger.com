@@ -1,0 +1,433 @@
+% A Very Brief Intro to LaTeX Typesetting - Graduate Student Research Day 2012
+% Cheyne Homberger - cheyne.homberger@gmail.com
+
+% ====================================================================== %
+% tell latex to use the 'beamer' class for slideshows 
+% the xcolor=dvipsnames lets us use more 'named' colors
+\documentclass[xcolor=dvipsnames]{beamer} 
+
+
+% this sets up the style of the presentation
+% \usetheme{default}
+\usetheme[compress]{Singapore}
+\usecolortheme[named=teal]{structure}
+\setbeamerfont{frametitle}{size = {\large}}
+
+
+% opens up more math symbols
+\usepackage{amsmath,amssymb}
+
+
+% makes it easier to show source code
+\usepackage{fancyvrb}
+
+% a nicer font family than the standard
+\usepackage{palatino}
+
+% allows links within the talk, and to the internet
+\usepackage{hyperref}
+
+% custom environment - places two 'pages' side by side
+\newenvironment{halfpage}{%
+    \begin{minipage}[c][2cm][c]{.45\textwidth}}
+    {\end{minipage}}
+
+% saves on typing ... 
+\newcommand{\vs}{\vspace{1pc}}
+\newcommand{\hs}{\hspace{1pc}}
+
+% for a macro example
+\newcommand{\myint}[1]{\int_0^1 #1 \mathrm{d}x }
+
+
+% the actual content starts here 
+% everything before this line is called the preamble
+% ====================================================================== %
+\begin{document}
+
+
+
+% textrm changes from sans serif - which is default for presentations - to serif
+% (just my preference for titles)
+\title{\textrm{An (Extremely Short) Introduction to \\ \LaTeX{} Typesetting}}
+\author{Cheyne Homberger}
+\date{\today} % will add in todays date when compiled
+\institute{Graduate Student Research Day}
+
+
+% note, all of this indentation is COMPLETELY UNNECESSARY. 
+% I just to it to make things a bit clearer.
+
+
+% 'frames' are the 'slides' of beamer
+\begin{frame}
+  \maketitle % makes a title slide from the title, auther, date, etc..
+\end{frame}
+
+
+\begin{frame}{Disclaimer}
+
+  \begin{center}
+  % only<n> makes stuff show up only on the nth part of the current slide
+  \only<2>{You cannot learn \LaTeX{} in a 40 minute talk}
+  \only<3>{You cannot learn \LaTeX{} in a ANY talk}
+  \end{center}
+\end{frame}
+
+
+
+\begin{frame}
+  \tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{What is \LaTeX?}
+\subsection{} % blank subsections so table of contents is less cluttered
+
+\begin{frame}
+  \tableofcontents[currentsection, hideallsubsections]
+\end{frame}
+
+
+
+\begin{frame}{Some History}
+  \begin{block}{First came \TeX{}...} % blocks are 'blocks' of text with a title
+    \TeX{} is a low level programming language written by Donald Knuth in 1978,
+    used for specifying page layout.
+  \end{block}
+  \pause
+  \begin{block}{...then came \LaTeX{}}
+    \LaTeX{} is a collection of macros and functions written by Leslie Lamport,
+    intended to make \TeX{} easier and simpler to write. 
+  \end{block}
+  \begin{center}
+  \Large
+  \uncover<3-4>{La + \TeX{}}  % only<k> means text shows up on kth layer of the frame
+  \uncover<4>{ = \LaTeX{}}
+  \end{center}
+\end{frame}
+
+
+\begin{frame}{.doc file vs text files}
+  \pause
+  \begin{block}{.doc files}
+    When you save a file in .doc format, you save information about page layout,
+    margins, fonts, text size, indentations, etc.\\
+    \pause
+    Even a very small amount of text, when saved, can be hundreds of kilobytes,
+    and requires specific programs to view and modify. 
+  \end{block}
+  \pause
+  \begin{block}{text files}
+    A text file contains \emph{only} the text: no information about format,
+    font, etc. Each letter or symbol is represented as one byte (8 bits) of data. \\
+    \pause
+    Text files can be viewed and modified by a huge variety of programs. 
+  \end{block}
+\end{frame}
+
+
+\begin{frame}{.doc file vs text files}
+  \begin{block}{}
+    A .doc file is not a .docx file is not an .odt file is not a ...
+  \end{block}
+  \pause
+
+  \begin{block}{}
+    A text file is a text file is a text file
+  \end{block}
+  \pause
+  
+  \begin{block}{}
+    A pdf is a pdf is a pdf
+  \end{block}
+\end{frame}
+  
+
+\begin{frame}{\LaTeX{} is...}
+  \pause
+  \begin{block}{}
+    \LaTeX{} is a program which turns a text file into a pdf \\ 
+    (or .dvi, or .ps, or... )
+  \end{block}
+\end{frame}
+
+
+\begin{frame}{What is \LaTeX{}?}
+  \pause
+  \begin{halfpage}
+  \begin{itemize}
+    \uncover<2->{\item \LaTeX{} is \emph{not} a word processor}
+    \vspace{1pc}
+    \uncover<4->{\item Word processors require you to format your document as
+    you write it (WYSIWYG)}
+  \end{itemize}
+  \end{halfpage}
+  \begin{halfpage}
+  \begin{itemize}
+    \uncover<3->{\item \LaTeX{} \emph{is} a program which reads a .tex file and
+    produces a pdf document}
+    \vspace{1pc}
+    \uncover<5->{\item \LaTeX{} separates the formatting from the content
+    (WYSIWYM)}
+  \end{itemize}
+  \end{halfpage}
+\end{frame}
+
+
+\begin{frame}[fragile]{Document Structure} % fragile needed to display source
+  \pause
+  \verb+\documentclass{article} + \\ %verb prints text verbatim
+  \pause
+  \vs
+  \hs Formatting options, \\
+  \hs new commands,\\
+  \hs additional packages to load, \\
+  \hs etc.\\
+  \vs
+  \pause
+  \verb+\begin{document}+\\
+  \pause
+  \vs
+  \hs Content goes here.\\
+  \vs
+  \pause
+  \verb+\end{document}+\\
+  \pause
+  \vs
+  \hs \LaTeX{} ignores anything below this line.
+\end{frame}
+
+
+\section{Formatting}
+\subsection{}
+
+\begin{frame}
+  \tableofcontents[currentsection, hideallsubsections]
+\end{frame}
+
+\begin{frame}[fragile]{Text Size and Style}
+\pause
+  \begin{block}{Text groups}
+    Text inside brackets \verb+ { ... } + is called a \emph{group}.\\
+    Style commands are typically confined to a specific group. 
+  \end{block}
+  \pause
+
+  \begin{block}{Text Options}
+    \url{http://en.wikibooks.org/wiki/LaTeX/Text_Formatting#Font_Styles}
+  \end{block}
+
+  \pause
+  \begin{block}{Emphasis}
+    \verb+\emph{ ... }+ will automatically emphasize text differently depending
+    on the context. 
+  \end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]{More Text Stuff}
+  \pause
+  
+  \begin{block}{Aligment}
+    \verb+\begin{center} ... \end{center}+ centers text. Replace `center' with
+    `flushright' or `flushleft' to justify.
+  \end{block}
+
+  \pause
+
+  \begin{block}{Extra space}
+    \verb+\vspace{1in}+ gives one inch of vertical space, \verb+\hspace{1in}+
+    gives horizontal space. \verb+\vfill+ and \verb+\hfill+ fill up vertical and
+    horizontal space on the page. \\
+    \url{http://en.wikibooks.org/wiki/LaTeX/Useful_Measurement_Macros}
+  \end{block}
+
+  \pause
+
+  \begin{block}{Starting a new page}
+    \verb+\pagebreak+ \emph{suggests} to \LaTeX{} to start a new page here.\\
+    \pause
+    \verb+\pagebreak[4]+ \emph{strongly suggests} to start a new page. \\
+    \pause
+    \verb+\newpage+ forces a new page. 
+  \end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]{Bullet Points}
+\pause
+  \hs \hs
+  \begin{halfpage}
+\begin{Verbatim}[frame=single, fontsize=\small]
+\begin{itemize}
+  \item first
+  \item second
+  \item third
+\end{itemize}
+
+\begin{enumerate}[i)]
+  \item first
+  \item second
+  \item third
+\end{enumerate}
+\end{Verbatim}
+  \end{halfpage}
+  \pause
+  \begin{halfpage}
+  \begin{itemize}
+    \item first
+    \item second
+    \item third
+  \end{itemize}
+
+  \begin{enumerate}[ i) ]
+    \item first
+    \item second
+    \item third
+  \end{enumerate}
+  \end{halfpage}
+\end{frame}
+
+
+
+
+
+
+
+\section{References}
+\subsection{}
+
+\begin{frame}
+  \tableofcontents[currentsection, hideallsubsections]
+\end{frame}
+
+
+\begin{frame}[fragile]{Internal References}
+  \pause
+  \begin{block}{Labels}
+    Defintions, bullet points, figures, etc. can be \emph{labelled}. Labels are
+    only visible in the source code, and will stay in place even when item
+    numbers change. 
+  \end{block}
+  \pause
+  \begin{Verbatim}
+  \begin{figure} \label{maingraph}
+  ...
+  \end{figure}
+  \end{Verbatim}
+  \pause
+  \begin{Verbatim}
+  ...
+  ...
+  As we have seen in Figure \ref{maingraph} 
+  on page \pageref{maingraph}, ...
+  \end{Verbatim}
+  \pause
+  \verb+\usepackage{hyperref}+ makes each reference \emph{clickable}
+\end{frame}
+
+
+\begin{frame}[fragile]{Table of Contents and Index}
+  \pause
+  \begin{block}{Sections and Subsections}
+    If you use \verb+\section{...}+, \verb+\subsection{...}+\\
+    \verb+\chapter{...}+, etc in your document, then \\
+    \verb+\tableofcontents+ generates a full table of contents. 
+  \end{block}
+  \pause
+  \begin{block}{Index}
+    With package \verb+makeidx+, use \verb+\index{key}+ next to topics in your
+    paper. The command \verb+\makeindex+ will generate a full index. 
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Bibliographies}
+  Bibliographies in \LaTeX{} work very similarly. Each item is given a name, and
+  cited with \verb+\cite{name}+. \\
+  \pause
+\begin{Verbatim}[fontsize=\small]
+\begin{thebibliography}
+  \bibitem{name}
+    author, title, journal, etc.
+\end{thebibliography} 
+\end{Verbatim}
+
+  \pause
+  bibTeX is a separate (but closely related) program which completely manages
+  your bibliography. It consists of a separate file (with a .bib) extension. \\
+  \pause
+  bibTeX will \emph{automatically} style your references, order them
+  alphabetically, and only list those you actually cite (or list them all, if
+  you want). 
+\end{frame}
+
+
+\begin{frame}[fragile]{BibTeX}
+\begin{Verbatim}[frame=single]
+@article{infprimes,
+    AUTHOR = {Euclid},
+     TITLE = {On the Infinitude of Primes},
+   JOURNAL = {First Journal of Math},
+    VOLUME = {1},
+      YEAR = {300 BC},
+     PAGES = {1 - 5},
+} 
+\end{Verbatim}
+
+  \pause
+  \verb+\cite{infprimes}+ will now generate this reference, number it, and cite
+  it. 
+\end{frame}
+ 
+
+\section{Advanced Topics}
+\subsection{}
+
+\begin{frame}
+  \tableofcontents[currentsection, hideallsubsections]
+\end{frame}
+
+\begin{frame}[fragile]{Macros and Shortcuts}
+  \pause
+  \begin{block}{New Commands}
+    \verb+\newcommand{\me}{Cheyne}+ tells \LaTeX{} to replace \verb+\me+ with
+    \verb+Cheyne+. 
+  \end{block}
+  \pause
+  \begin{block}{New Commands}
+    $$\int_0^1f(x) \mathrm{d}x $$
+    \pause
+  \verb+\newcommand{\myint}[1]{\int_0^1 #1\mathrm{d}x}+ \\
+    \vs 
+    \verb+\myint{ e^x }+ gives $\myint{e^x}$. 
+  \end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]{Presentations}
+  
+  \pause
+  \emph{Beamer} is a document class for producing presentations and posters
+  \pause
+
+\begin{Verbatim}[fontsize=\small]
+\documentclass{beamer}
+\usetheme{...}
+\usecolortheme{...}
+
+\begin{document}
+
+\begin{frame}{frametitle}
+  stuff
+  \pause
+  more stuff 
+\end{Verbatim}
+\vspace{-.6pc}
+{\small \verb+\end{frame}+}
+\end{frame}
+
+
+
+\end{document}
+
+

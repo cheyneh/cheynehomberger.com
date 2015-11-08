@@ -1,0 +1,115 @@
+\documentclass[xcolor=table,dvipsnames]{beamer}
+  \definecolor{lg}{rgb}{.85,.85,.85}
+  \usepackage{graphicx}
+
+  \usecolortheme[named=teal]{structure}
+  \setbeamerfont{frametitle}{size = {\large}, family=\rmfamily}
+  \setbeamertemplate{navigation symbols}{}
+  % packages for extra math symbols
+  \usepackage{amsthm, amsmath, amssymb} 
+
+  % I like these fonts better
+  \usepackage{mathpazo}
+
+  \usepackage{tikz}
+  \usetikzlibrary{arrows}
+  \usetikzlibrary{decorations.markings}
+  \tikzstyle{dot}=[circle, inner sep=.4mm, draw=black, outer sep=2mm, fill=black]
+  \tikzstyle{gdot}=[circle, inner sep=.4mm, draw=black!25, outer sep=2mm,
+                    fill=black!25]
+  \tikzstyle{odot}=[circle, inner sep=.4mm, draw=black, outer sep=2mm]
+
+
+  \usepackage{pgfplots}
+  \pgfplotsset{compat=1.8}
+
+  \DeclareMathOperator{\Av}{Av}
+
+  \newcommand{\Avn}{\Av_n(123)}
+  \newcommand{\Avns}{\Av_n^*(123)}
+
+  \newcommand{\num}{\nu}
+  \newcommand{\ds}{\displaystyle}
+  \newcommand{\ra}{\rightarrow}
+  \newcommand{\R}{\mathbb{R}}
+  \newcommand{\sg}{\sigma}
+  \renewcommand{\S}{\mathfrak{S}}
+  \newcommand{\C}{\mathcal{C}}
+
+  \newcommand{\Ex}[1]{\mathbb{E}\left[ #1 \right]}
+
+
+  
+
+% ===================================================================== %
+\begin{document}
+
+
+\title[Patterns in Permutations]%
+  {\Large Counting Patterns: \\ \large Equipopularity in Permutation Classes}
+
+\author{Cheyne Homberger \\ \small University of Maryland, Baltimore County}
+
+\date{\small Reykjavik University \\ May 18th, 2015}
+
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame} 
+  \begin{center}
+    \rmfamily \LARGE \color{teal}{Introduction}
+  \end{center}
+\end{frame}
+\input{intro.tex}
+
+
+% ====================================================================== %
+% PATTERN OCCURRENCES
+% ====================================================================== %
+
+\section{Pattern Occurrences}
+\begin{frame} 
+  \begin{center}
+    \rmfamily \LARGE \color{teal}{Pattern Occurrences}
+  \end{center}
+\end{frame}
+\input{occurrences.tex}
+
+
+
+
+\begin{frame} 
+  \begin{center}
+    \rmfamily \color{teal}{
+      {\LARGE Connections Between Classes}\\[4ex]
+      {\large $\Av(123)$ and $\Av(132)$}
+    }
+  \end{center}
+\end{frame}
+\input{between.tex}
+
+
+\begin{frame} 
+  \begin{center}
+    \rmfamily \color{teal}{
+      {\LARGE Connections Within Classes}\\[4ex]
+      {\large $\Av(132)$ and the Separables}
+    }
+  \end{center}
+\end{frame}
+\input{within.tex}
+
+
+\begin{frame} 
+  \begin{center}
+    \rmfamily \LARGE \color{teal}{Future Work}
+  \end{center}
+\end{frame}
+\input{future.tex}
+
+
+
+
+\end{document}
