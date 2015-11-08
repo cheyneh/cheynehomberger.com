@@ -19,6 +19,7 @@ SECTIONS = [
         ('Papers', 'category/papers.html'),
         ('Talks', 'category/talks.html'),
         ('Teaching', 'category/teaching.html'),
+        ('CV', '/pdfs/cv.pdf'),
         ]
 
 
