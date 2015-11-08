@@ -8,7 +8,7 @@ SITENAME = 'Cheyne Homberger'
 SITEURL = 'http://cheynehomberger.com'
 
 PATH = 'content'
-THEME = 'myflasky'
+THEME = 'cheynes_theme'
 
 TIMEZONE = 'America/New_York'
 
@@ -45,23 +45,23 @@ AUTHOR_FEED_RSS = None
 
 
 # social media accounts --- setting these will create links in the footer
-GOOGLE_ANALYTICS_ACCOUNT = 'UA-45764157-1'
-MAIL_USERNAME = 'cheyne.homberger'
-MAIL_HOST = 'gmail.com'
-GITHUB_URL = 'http://github.com/cheyneh'
-LINKEDIN_URL = 'https://www.linkedin.com/pub/cheyne-homberger/63/647/883'
-GOOGLE_SCHOLAR_URL = 'https://scholar.google.com/citations?user=joyBnGMAAAAJ&hl=en'
-RESEARCHGATE_URL = 'https://www.researchgate.net/profile/Cheyne_Homberger'
+GOOGLE_ANALYTICS_ACCOUNT = None
+MAIL_USERNAME = None
+MAIL_HOST = None
+GITHUB_URL = None
+LINKEDIN_URL = None
+GOOGLE_SCHOLAR_URL = None
+RESEARCHGATE_URL = None
 ACADEMIA_URL = None
-ARXIV_URL = 'http://arxiv.org/a/homberger_c_1.html'
+ARXIV_URL = None
 MENDELEY_URL = None
 
+# set my values for each of the variables above
+cur_dir = os.path.dirname( os.path.realpath(__file__) )
+with open( os.path.join(cur_dir, 'private_vars.py') ) as f:
+    text = f.read()
+    exec(text)
 
-# # set private variables?
-# cur_dir = os.path.dirname( os.path.realpath(__file__) )
-# with open( os.path.join(cur_dir, 'private_vars.py') ) as f:
-#     text = f.read()
-#     exec(text)
 
 
 DEFAULT_PAGINATION = 20
