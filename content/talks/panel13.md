@@ -28,7 +28,7 @@ incoming graduate students. He has worked with I-Cubed for three years, serving
 as Co-Chair from January 2012 to February of 2013.
 
 ### Speakers
-Wendy-Lin Bartels
+*Wendy-Lin Bartels*
 
 Wendy-Lin Bartels is an Assistant Research Scientist with the Florida Climate 
 Institute and the Southeast Climate Consortium at the University of Florida.  
@@ -48,7 +48,7 @@ a PhD in interdisciplinary ecology and a Master’s in science communication.  S
 is a native South African and holds a Bachelor of Science in botany and 
 molecular genetics from Stellenbosch University.
 
-### Jonathan Dain
+*Jonathan Dain*
 
 Jonathan Dain is Curriculum Director for the Florida Natural Resources 
 Leadership Institute (NRLI), a UF/IFAS Extension program focused on 
@@ -64,7 +64,7 @@ a certified mediator, he began his career almost 30 years ago as a Peace Corps
 Volunteer in Paraguay.  He continues to work in Latin America with a focus on 
 Brazil and more recently, Mexico.
 
-### Lieutenant General (LTG) F. L. Hagenbeck
+*Lieutenant General (LTG) F. L. Hagenbeck*
 
 Lieutenant General (LTG) F. L. Hagenbeck is President of his own consulting firm 
 based in Jacksonville, Florida. He serves as an expert on leadership and 
