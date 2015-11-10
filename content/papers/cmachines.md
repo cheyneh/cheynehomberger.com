@@ -22,5 +22,5 @@ permutation classes which, although we can generate thousands of terms of their
 enumerations, seem to not have D-finite generating functions.
 
 - [arXiv Link](http://arxiv.org/abs/1510.00269)
-- [LaTeX Source](/pdfs/cmachines.tex)
-- [PDF](/pdfs/cmachines.pdf)
+- [LaTeX Source]({filename}/pdfs/cmachines.tex)
+- [PDF]({filename}/pdfs/cmachines.pdf)

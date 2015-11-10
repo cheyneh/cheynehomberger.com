@@ -13,5 +13,5 @@ sorting operations (e.g., reversals, block transpositions, cut-and-paste
 moves).
 
 - [arXiv Link](http://arxiv.org/abs/1308.4946)
-- [LaTeX Source](/pdfs/polyclass.tex)
-- [PDF](/pdfs/polyclass.pdf)
+- [LaTeX Source]({filename}/pdfs/polyclass.tex)
+- [PDF]({filename}/pdfs/polyclass.pdf)

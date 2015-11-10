@@ -37,5 +37,5 @@ Finally, we end in Chapter~\ref{chap:fixpat} with an exploration of
 pattern-packing, and determine the probability distribution for the number
 of distinct large patterns contained in a permutation. 
 
-- [LaTeX Source](/pdfs/diss.tex)
-- [PDF](/pdfs/diss.pdf)
+- [LaTeX Source]({filename}/pdfs/diss.tex)
+- [PDF]({filename}/pdfs/diss.pdf)

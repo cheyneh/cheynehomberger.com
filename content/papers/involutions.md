@@ -14,5 +14,5 @@ behavior. This strange behavior even provides some very unexpected data related
 to the number of 1324-avoiding permutations.
 
 - [arXiv Link](http://arxiv.org/abs/1310.7003)
-- [LaTeX Source](/pdfs/involutions.tex)
-- [PDF](/pdfs/involutions.pdf)
+- [LaTeX Source]({filename}/pdfs/involutions.tex)
+- [PDF]({filename}/pdfs/involutions.pdf)

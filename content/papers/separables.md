@@ -16,5 +16,5 @@ particular, we show that the number of equipopularity classes for length $n$ pat
 in the separable permutations is equal to the number of partitions of $n-1$. 
 
 - [arXiv Link](http://arxiv.org/abs/1410.7312)
-- [LaTeX Source](/pdfs/separables.tex)
-- [PDF](/pdfs/separables.pdf)
+- [LaTeX Source]({filename}/pdfs/separables.tex)
+- [PDF]({filename}/pdfs/separables.pdf)

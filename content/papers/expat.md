@@ -20,5 +20,5 @@ between the two and prove that the number of 231 patterns is the same in each.
 
 - [Journal link](http://www.combinatorics.org/ojs/index.php/eljc/article/view/v19i3p43)
 - [arXiv Link](http://arxiv.org/abs/1206.0320)
-- [LaTeX Source](/pdfs/expat.tex)
-- [PDF](/pdfs/expat.pdf)
+- [LaTeX Source]({filename}/pdfs/expat.tex)
+- [PDF]({filename}/pdfs/expat.pdf)

@@ -19,5 +19,5 @@ construction that maximizes the number of patterns of a fixed size.
 
 - [Journal Link](http://www.math.rochester.edu/ojac/articles.html#issue7)
 - [arXiv Link](http://arxiv.org/abs/1211.7117)
-- [LaTeX Source](/pdfs/fixpat.tex)
-- [PDF](/pdfs/fixpat.pdf)
+- [LaTeX Source]({filename}/pdfs/fixpat.tex)
+- [PDF]({filename}/pdfs/fixpat.pdf)

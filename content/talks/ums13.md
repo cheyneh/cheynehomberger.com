@@ -5,7 +5,7 @@ Date: 2013-11-1
 
 Pi Mu Epsilon Colloquium, University of Florida, November 1st, 2013
 
-- [LaTeX Source](/pdfs/ums13.tex)
-- [PDF](/pdfs/ums13.pdf)
+- [LaTeX Source]({filename}/pdfs/ums13.tex)
+- [PDF]({filename}/pdfs/ums13.pdf)
 
 

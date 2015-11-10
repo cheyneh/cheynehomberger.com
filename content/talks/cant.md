@@ -7,7 +7,7 @@ Summer School and Conference at Centre International de Rencontres Mathématique
 (CIRM) in Marseilles, France
 
 - Funded by UF Center for Applied Mathematics
-- [PDF](/pdfs/cant12.pdf)
-- [Source (LaTeX and images in a tar archive)](/pdfs/cant12.tar)
+- [PDF]({filename}/pdfs/cant12.pdf)
+- [Source (LaTeX and images in a tar archive)]({filename}/pdfs/cant12.tar)
 
 

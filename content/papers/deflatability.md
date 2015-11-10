@@ -18,5 +18,5 @@ provides examples of each.
 
 
 - [arXiv Link](http://arxiv.org/abs/1409.5296)
-- [LaTeX Source](/pdfs/deflatability.tex)
-- [PDF](/pdfs/deflatability.pdf)
+- [LaTeX Source]({filename}/pdfs/deflatability.tex)
+- [PDF]({filename}/pdfs/deflatability.pdf)
