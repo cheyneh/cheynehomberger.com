@@ -5,7 +5,9 @@ import os
 
 AUTHOR = 'Cheyne Homberger'
 SITENAME = 'Cheyne Homberger'
+SITEURL = 'http://umbc.edu/~cheyneh'
 SITEURL = 'http://cheynehomberger.com'
+RELATIVE_URLS = False
 
 PATH = 'content'
 THEME = 'cheynes_theme'
@@ -68,5 +70,3 @@ with open( os.path.join(cur_dir, 'private_vars.py') ) as f:
 
 DEFAULT_PAGINATION = 20
 
-# Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
