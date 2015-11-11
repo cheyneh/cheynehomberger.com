@@ -5,7 +5,7 @@ import os
 
 AUTHOR = 'Cheyne Homberger'
 SITENAME = 'Cheyne Homberger'
-SITEURL = 'http://umbc.edu/~cheyneh'
+# SITEURL = 'http://umbc.edu/~cheyneh'
 SITEURL = 'http://cheynehomberger.com'
 RELATIVE_URLS = False
 

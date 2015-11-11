@@ -1,0 +1,692 @@
+\documentclass[xcolor=dvipsnames]{beamer}
+
+% \usetheme{Rochester}
+% \usetheme{Warsaw}
+% \usetheme[compress]{Singapore}
+\usecolortheme[named=teal]{structure}
+\usepackage{amsmath,amssymb,enumerate}
+\setbeamertemplate{navigation symbols}{}
+\setbeamerfont{frametitle}{size = {\large}}
+
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\Avns}{\Av_n ^* 123 }
+\newcommand{\Avn}{\Av_n   123 }
+\newcommand{\pl}[1]{\overset{+}{#1}}
+\newcommand{\mi}[1]{\overset{-}{#1}}
+\newcommand{\bu}[1]{\overset{\bullet}{1}}
+\DeclareMathOperator{\Av}{Av}
+\DeclareMathOperator{\num}{f}
+
+% \usepackage{pgfpages}              % uncomment these and compile 
+% \pgfpagesuselayout{8 on 1}         % to make a handout
+
+\usepackage{palatino}
+% \usepackage{fontspec}              % to change font, uncomment these      
+% \setmainfont{Lucida Sans Unicode}  % and compile with xelatex instead
+% \usefonttheme{serif}               % of pdflatex
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}                 
+\usepackage{tikz}                   
+
+\theoremstyle{definition}            % makes all theorem environments
+                                     % non-italic 
+\newtheorem*{notation}{Notation}
+\newtheorem*{remark}{Remark}
+\newtheorem*{proposition}{Proposition}
+\newtheorem*{idea}{Idea}
+\newtheorem*{conjecture}{Conjecture}
+\newtheorem*{question}{Question}
+\newtheorem*{todo}{To Do}
+
+
+
+%===========================================================%
+
+\begin{document}
+
+\title{Expected Patterns in Permutations Avoiding $123$}
+\author{Cheyne Homberger}
+\institute[UFL]{
+  Department of Mathematics\\
+  University of Florida\\
+  Gainesville FL 32611-8105\\[1ex]
+  cheyne42@ufl.edu
+}
+\date{June 12, 2012}
+
+\begin{frame}
+  \maketitle
+\end{frame}
+
+\begin{frame}{Introduction}
+  \pause 
+
+  \begin{example}
+    The permutation $3 \ 1 \ 5 \ 2 \ 4$ contains the
+    pattern $3 \ 1 \ 2$ twice (the first, second and forth entries and
+    the third, forth and fifth).
+  \end{example}
+  \pause
+
+  \begin{example}
+    The set $\{ 2341 , 1234, 4321 \} $ contains the pattern $123$
+    exactly $5$ times. 
+  \end{example}
+\end{frame}
+
+
+\begin{frame}{Data}
+  \pause
+  \vspace{-1pc}
+  $$\Av 123 $$
+  $$\begin{array}{c|c|c|c|c|c|c}
+      \text{length} & 123 & 132 & 213 & 231
+      & 312 & 321 \\
+      \hline
+      3  & 0     &    1  &    1 &    1 &    1 &    1  \\
+      \pause
+      4  & 0     &    9  &    9 &   11 &   11 &   16  \\
+      \pause
+      5  & 0     &    57 &   57 &   81 &   81 &  144  \\
+      6  & 0     &   312 &  312 &  500 &  500 & 1016  \\ 
+      7  & 0     &  1578 & 1578 & 2794 & 2794 & 6271   
+    \end{array}
+  $$
+  \pause
+  $$ \Av 132 $$
+  $$\begin{array}{c|c|c|c|c|c|c}
+      \text{length} & 123 & 132 & 213 & 231
+      & 312 & 321 \\
+      \hline
+     3  & 1     &    0  &    1 &    1 &    1 &    1  \\
+     4  & 10    &    0  &   11 &   11 &   11 &   13  \\
+     \pause
+     5  & 68    &    0  &   81 &   81 &   81 &  109  \\
+     6  & 392   &    0  &  500 &  500 &  500 &  748  \\ 
+     7  & 2063  &    0  & 2794 & 2794 & 2794 & 4570   
+   \end{array}
+  $$
+\end{frame}
+
+
+\begin{frame}{Notation}
+  \pause
+
+  \begin{definition}
+    For any permutations $q$ and $p$, denote by $\num_q (p)$ the
+    number of occurrences of the pattern $q$ in the permutation $p$. 
+  \end{definition}
+  \pause
+  
+  \begin{example}
+    $$ \num_{21} (23154) = 3$$
+    \pause
+    $$|\num_{231}^{-1}(0) \cap S_n| = \frac{1}{n+1} \binom{2n}{n} =
+    c_n$$
+  \end{example}
+  \pause
+  
+  \begin{definition}
+    Similarly, for a pattern $q$ and a set $\C$ of permutations,
+    define 
+    $$ \num_q (\C) = \sum_{p \in \C} \num_q(p). $$
+  \end{definition}
+\end{frame}
+
+
+\begin{frame}{Preliminaries}
+  \pause
+
+  \begin{fact}
+    $$ (\num_{12} + \num_{21})(\Avn)  = \binom{n}{2} c_n .$$ 
+  \end{fact}
+  \pause
+
+  \begin{theorem}[Cheng, Eu, Fu 2007]
+    $$\num_{12}( \Av_n 123) = \sum_{k=1}^{n-1} c_k 4^{n-k-1} = 
+      4^{n-1} - \binom{2n-1}{n}$$
+    $$\sum_{n \geq 0} \num_{12}(\Av_n 123) x^n = 
+      \frac{1 - 2x - \sqrt{1-4x}}{2(1-4x)}.$$
+  \end{theorem}
+\end{frame}
+
+\begin{frame}{Preliminaries}
+  
+  \begin{fact}
+    $$ (2 \num_{132} + 2 \num_{231} +
+      \num_{321})(\Avn) = \binom{n}{3} c_n.$$
+  \end{fact}
+
+  \pause
+
+  \begin{proposition}
+    $$ (4 \num_{132} + 2 \num_{231})(\Avn) =
+      (n-2) \num_{12}(\Avn). $$
+  \end{proposition}
+  \pause
+
+  \begin{proof}
+    Rewrite as 
+    $$ (n-2)\num_{12} - \num_{132} - \num_{213} = 
+      \num_{231} + \num_{312}+ \num_{132} + \num_{213}. $$
+    Both sides count the number of length three patterns with at least
+    one non-inversion.
+  \end{proof}
+
+\end{frame}
+
+
+\begin{frame}{Preliminaries}
+  \begin{lemma}
+    Let $a_n = \num_{132}(\Avn)$, $b_n = \num_{231}(\Avn)$, $d_n =
+    \num_{321}(\Avn)$, and $j_n = \num_{12}(\Avn)$. Let $A(x), B(x),
+    D(x), J(x)$ be their respective generating functions. Then 
+    $$ \begin{array}{ccccc}
+      2A(x) & + 2B(x) & + D(x) & = & \frac{x^3}{6} (C(x))''' \\
+      4A(x) & + 2B(x) & & =&  x^3(J(x)/x^2)' 
+      \end{array} $$
+  \end{lemma}
+
+\end{frame}
+  
+
+\begin{frame}{Indecomposable Permutations}
+  
+  \begin{definition}
+    We say that a permutation $p = p_1 p_2 \ldots p_n$ is
+    \emph{decomposable} if there exists an integer $k$ so that each
+    of the entries $p_1, \ldots p_k$ is greater than east of the
+    entries $p_{k+1}, \ldots p_n$. Otherwise, we say that $p$ is
+    \emph{indecomposable}
+  \end{definition}
+
+  \pause
+
+  \begin{example}
+    The permutation $3 5 6 4 1 2$ is decomposable, as the entries
+    $3564$ are larger than the entries $12$
+  \end{example}
+
+  \pause
+
+  \begin{definition}
+    Denote by $\Avns$ the set of indecomposable $n$-permutations which
+    avoid $123$.
+  \end{definition}
+
+\end{frame}
+
+
+\begin{frame}{Indecomposable Permutations}
+
+  \begin{fact}
+    $|\Avns| = c_{n-1}$.
+  \end{fact}
+  \pause
+
+  \begin{proof}
+    \vspace{.5pc}
+
+    \begin{tikzpicture}[scale = .5]
+      
+      \draw[thick] (0,8) -- (0,0) -- (8,0) -- (8,8) -- (0,8);
+      \node at (4,4) {$\Avn$};
+      \node at (9,4) {$ = $};
+
+      \draw (10,8) -- (10,6) -- (12,6) -- (12,8) -- (10,8);
+      \node at (11,7) {\scriptsize $ \Avns$};
+
+      \draw (12,6) -- (12,4) -- (14,4) -- (14,6) -- (12,6);
+      \node at (13,5) {\scriptsize $ \Avns$};
+      
+      \node at (15,3) {$\ddots$};
+
+      \draw (16,2) -- (16,0) -- (18,0) -- (18,2) -- (16,2);
+      \node at (17,1) {\scriptsize $ \Avns$};
+    \end{tikzpicture}
+
+    \pause
+    $$ C(x) = 1 + C^*(x) + C^*(x)^2 + \ldots = \frac{1}{1 - C^*(x)}$$
+
+    \vspace{-1pc}
+    \pause
+    $$ C^*(x) = \frac{C(x) - 1}{C(x)} =  xC(x).$$
+
+
+  \end{proof}
+
+\end{frame}
+
+
+\begin{frame}{Indecomposable Permutations}
+
+  \begin{fact}
+    $|\Avns| = c_{n-1}$.
+  \end{fact}
+
+  \begin{proof}[Alternate Proof]
+    \vspace{.5pc}
+
+    \begin{tikzpicture}[scale = .5]
+      
+      \draw[thick] (0,8) -- (0,0) -- (8,0) -- (8,8) -- (0,8);
+      \node at (4,4) {$\Avn$};
+      \node at (9,4) {$ = $};
+
+      \draw (10,8) -- (10,6) -- (12,6) -- (12,8) -- (10,8);
+      \node at (11,7) {\scriptsize $ \Avns$};
+
+      \draw (12,6) -- (12,0) -- (18,0) -- (18,6) -- (12,6);
+      \node at (15,3) {$ \Avn$};
+    \end{tikzpicture}
+
+    $$ C(x) = C^*(x) C(x) + 1$$
+    
+    \vspace{-1pc}
+    $$ C^*(x) = \frac{C(x) - 1}{C(x)} =  xC(x).$$
+
+
+  \end{proof}
+
+\end{frame}
+
+
+\begin{frame}
+  \begin{lemma}
+    Let $a_n = \num_{132}(\Avn)$, $b_n = \num_{231}(\Avn)$, $d_n =
+    \num_{321}(\Avn)$, and $j_n = \num_{12}(\Avn)$. Let $A(x), B(x),
+    D(x), J(x)$ be their respective generating functions. Let $*$
+    denote the corresponding numbers for indecomposable permutations.
+    Then 
+    $$ \begin{array}{ccccc}
+      2A(x) & + 2B(x) & + D(x) & = & \frac{x^3}{6} (C(x))''' \\
+      4A(x) & + 2B(x) & & =&  x^3(J(x)/x^2)' \\
+      2A^*(x) & + 2B^*(x) & + D^*(x) & = & \frac{x^3}{6} (xC(x))'''\\
+      4A^*(x)& + 2B^*(x)& & =& x^3(J^*(x) /x^2)' 
+      \end{array} $$
+  \end{lemma}
+
+\end{frame}
+
+
+\begin{frame}{Solving the System}
+  \begin{block}{\only<-7>{Lemma}\uncover<8>{Corollary}}
+    \pause
+    $$ C(x) A(x)  = xJ(x) C'(x)$$
+    \pause
+    % $$ C(x) A^*(x) = xF^*(x) C'(x) $$
+    $$ A^*(x) + B^*(x) = \sum_{n\geq 0} \num_{213} \big(\Av_n^* 132
+    \big) x^n $$ 
+    \pause
+    $$ B^*(x) C(x) = 2xB(x) $$
+    \pause
+    $$ A(x)+B(x) = 2\sum_{n\geq 0} \Big(\num_{213} \big( \Av ^*_n
+    132 \big) + \num_{231} \big( \Av ^*_n 132 \big)\Big) x^n $$
+    \pause
+    $$ A(x) + B(x) = xB^*(x) $$
+    \pause
+    $$ J^*(x)  = 2A^*(x) $$
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+
+  \begin{lemma}
+    $$A^*(x) = \frac{x^3C(x)}{(1-4x)^{3/2}}$$
+  \end{lemma}
+
+\end{frame}
+
+
+\begin{frame}{One Last Definition}
+  \pause
+  
+  \begin{definition}
+    A \emph{Dyck path} of length $2n$ (or of semilength $n$) is a
+    path in the plane from $(0,0)$ to $(2n,0)$ using steps $(1,1)$ and
+    $(1,-1)$ which never crosses below the $x$-axis. 
+  \end{definition}
+  \pause 
+
+  \begin{example}
+    \begin{tikzpicture}[scale = .5, auto = center]
+      \draw[thick] (0,2) -- (2,4) -- (3,3) -- (4,4) --
+                   (5,3) -- (7,5) -- (10,2) -- (11,3) --
+                   (12,2);
+      \draw (0,2) -- (12,2);
+      \end{tikzpicture}
+      $ = UUDUDUUDDDUD.$
+  \end{example}
+  \pause
+
+  \begin{fact}
+    There are exactly $c_n$ Dyck paths of semilength $n$.   
+  \end{fact}
+
+\end{frame}
+
+
+
+\begin{frame}{Sketch of proof}
+
+  \only<-12>{
+    Let $p = 4 \ 3 \ 7 \ 6 \ 1 \ 5 \ 2 $, and count $213$ patterns. \\
+    \hfill 
+  }
+  \only<13->{ Let $h_{n,k}$ denote the total number of peaks at height
+  $k$ in all Dyck paths of semilength $n$. 
+  Let $H(x,u) = \sum_{n,k \geq 0} h_{n,k} x^n u^k$. \\
+  \vspace{-.4pc} }
+
+  \begin{figure}[center]
+
+% lots of pictures... not the prettiest code
+    \only<1>{
+      \begin{tikzpicture}[scale = .7, auto = center]
+        \draw[thick, color =  white] (0,8) -- (0,0) -- (8,0);
+      \end{tikzpicture}
+      }
+
+    \only<2>{
+      \begin{tikzpicture}[scale = .7, auto = center]
+        \draw[thick, <->] (0,8) -- (0,0) -- (8,0);
+        \node[circle, fill=black] at (1,4) {};
+        \node[circle, fill=black] at (2,3) {};
+        \node[circle, fill=black] at (3,7) {};
+        \node[circle, fill=black] at (4,6) {};
+        \node[circle, fill=black] at (5,1) {};
+        \node[circle, fill=black] at (6,5) {};
+        \node[circle, fill=black] at (7,2) {};
+      \end{tikzpicture}
+    }
+
+    \only<3>{ 
+      \begin{tikzpicture}[scale = .7, auto = center]
+        \draw[thick, <->] (0,8) -- (0,0) -- (8,0);
+        \node[circle, fill=lightgray] at (1,4) {};
+        \node[circle, fill=lightgray] at (2,3) {};
+        \node[circle, fill=black] at (3,7) {};
+        \node[circle, fill=black] at (4,6) {};
+        \node[circle, fill=lightgray] at (5,1) {};
+        \node[circle, fill=black] at (6,5) {};
+        \node[circle, fill=black] at (7,2) {};
+      \end{tikzpicture}
+    }
+
+    \only<4>{ 
+      \begin{tikzpicture}[scale = .7, auto = center]
+        \draw[thick, <->] (0,8) -- (0,0) -- (8,0);
+        \node[circle, fill=lightgray] at (1,4) {};
+        \node[circle, fill=lightgray] at (2,3) {};
+        \node[circle, fill=black] at (3,7) {};
+        \node[circle, fill=black] at (4,6) {};
+        \node[circle, fill=lightgray] at (5,1) {};
+        \node[circle, fill=black] at (6,5) {};
+        \node[circle, fill=black] at (7,2) {};
+        \draw (0,7) -- (3,7) -- (3,0);
+      \end{tikzpicture}
+    }
+
+    \only<5>{ 
+      \begin{tikzpicture}[scale = .7, auto = center]
+        \draw[thick, <->] (0,8) -- (0,0) -- (8,0);
+        \node[circle, fill=lightgray] at (1,4) {};
+        \node[circle, fill=lightgray] at (2,3) {};
+        \node[circle, fill=black] at (3,7) {};
+        \node[circle, fill=black] at (4,6) {};
+        \node[circle, fill=lightgray] at (5,1) {};
+        \node[circle, fill=black] at (6,5) {};
+        \node[circle, fill=black] at (7,2) {};
+        \draw (0,6) -- (4,6) -- (4,0);
+      \end{tikzpicture}
+    }
+
+    \only<6>{ 
+      \begin{tikzpicture}[scale = .7, auto = center]
+        \draw[thick, <->] (0,8) -- (0,0) -- (8,0);
+        \node[circle, fill=lightgray] at (1,4) {};
+        \node[circle, fill=lightgray] at (2,3) {};
+        \node[circle, fill=black] at (3,7) {};
+        \node[circle, fill=black] at (4,6) {};
+        \node[circle, fill=lightgray] at (5,1) {};
+        \node[circle, fill=black] at (6,5) {};
+        \node[circle, fill=black] at (7,2) {};
+        \draw (0,5) -- (6,5) -- (6,0);
+      \end{tikzpicture}
+    }
+
+    \only<7>{ 
+      \begin{tikzpicture}[scale = .7, auto = center]
+        \draw[thick, <->] (0,8) -- (0,0) -- (8,0);
+        \node[circle, fill=lightgray] at (1,4) {};
+        \node[circle, fill=lightgray] at (2,3) {};
+        \node[circle, fill=black] at (3,7) {};
+        \node[circle, fill=black] at (4,6) {};
+        \node[circle, fill=lightgray] at (5,1) {};
+        \node[circle, fill=black] at (6,5) {};
+        \node[circle, fill=black] at (7,2) {};
+        \draw (0,2) -- (7,2) -- (7,0);
+      \end{tikzpicture}
+    }
+
+    \only<8>{ 
+      \begin{tikzpicture}[scale = .7, auto = center]
+        \draw[thick, <->] (0,8) -- (0,0) -- (8,0);
+        \node[circle, fill=lightgray] at (1,4) {};
+        \node[circle, fill=lightgray] at (2,3) {};
+        \node[circle, fill=black] at (3,7) {};
+        \node[circle, fill=black] at (4,6) {};
+        \node[circle, fill=lightgray] at (5,1) {};
+        \node[circle, fill=black] at (6,5) {};
+        \node[circle, fill=black] at (7,2) {};
+        \draw (0,7) -- (3,7) -- (3,0);
+        \draw (0,6) -- (4,6) -- (4,0);
+        \draw (0,5) -- (6,5) -- (6,0);
+        \draw (0,2) -- (7,2) -- (7,0);
+      \end{tikzpicture}
+    }
+
+    \only<9>{ 
+      \begin{tikzpicture}[scale = .7, auto = center]
+        \draw[thick, <->] (0,8) -- (0,0) -- (8,0);
+        \node[circle, fill=lightgray] at (1,4) {};
+        \node[circle, fill=lightgray] at (2,3) {};
+        \node[circle, fill=black] at (3,7) {};
+        \node[circle, fill=black] at (4,6) {};
+        \node[circle, fill=lightgray] at (5,1) {};
+        \node[circle, fill=black] at (6,5) {};
+        \node[circle, fill=black] at (7,2) {};
+        \draw[thick] (1,7) -- (3,7) -- (3,6) -- (4,6) --
+                     (4,5) -- (6,5) -- (6,2) -- (7,2) --
+                     (7,1);
+      \end{tikzpicture}
+    }
+
+    \only<10>{ 
+      \begin{tikzpicture}[scale = .7, auto = center]
+        \draw[thick, <->] (0,8) -- (0,0) -- (8,0);
+        \node[circle, fill=lightgray] at (1,4) {};
+        \node[circle, fill=lightgray] at (2,3) {};
+        \node[circle, fill=black] at (3,7) {};
+        \node[circle, fill=black] at (4,6) {};
+        \node[circle, fill=lightgray] at (5,1) {};
+        \node[circle, fill=black] at (6,5) {};
+        \node[circle, fill=black] at (7,2) {};
+        \draw[thick] (1,7) -- (3,7) -- (3,6) -- (4,6) --
+                     (4,5) -- (6,5) -- (6,2) -- (7,2) --
+                     (7,1);
+        \draw (1,7) -- (7,1);
+      \end{tikzpicture}
+    }
+
+    \only<11>{
+      \begin{tikzpicture}[scale = .7, auto = center]
+        \draw[thick, color =  white] (0,8) -- (0,0) -- (8,0);
+        \draw[thick] (0,2) -- (2,4) -- (3,3) -- (4,4) --
+                     (5,3) -- (7,5) -- (10,2) -- (11,3) --
+                     (12,2);
+        \draw (0,2) -- (12,2);
+      \end{tikzpicture}
+    }
+
+    \only<12,13>{
+      \begin{tikzpicture}[scale = .7, auto = center]
+        \draw[thick, color =  white] (0,8) -- (0,0) -- (8,0);
+        \draw[thick] (0,2) -- (2,4) -- (3,3) -- (4,4) --
+                     (5,3) -- (7,5) -- (10,2) -- (11,3) --
+                     (12,2);
+        \draw (0,2) -- (12,2);
+        
+        \node at (2,5) {2};
+        \node at (4,5) {2};
+        \node at (7,6) {3};
+        \node at (11,4) {1};
+      \end{tikzpicture}
+    }
+
+    \only<14>{
+      \begin{tikzpicture}[scale = .7, auto = center]
+        \draw[thick, color =  white] (0,8) -- (0,0) -- (8,0);
+        \draw[thick] (0,2) -- (2,4) -- (3,3) -- (4,4) --
+                     (5,3) -- (7,5) -- (10,2) -- (11,3) --
+                     (12,2);
+        \draw (0,2) -- (12,2);
+        \draw (1,3) -- (9,3);
+        \draw (10,1) -- (10,5);
+      \end{tikzpicture}
+    }
+
+    \only<15>{
+      \vspace{.1pc}
+
+      \begin{tikzpicture}[scale = .7, auto = center]
+        \draw[thick, color =  white] (0,8) -- (0,0) -- (8,0);
+        \draw[thick] (0,2) -- (2,4) -- (3,3) -- (4,4) --
+                     (5,3) -- (7,5) -- (10,2) -- (11,3) --
+                     (12,2);
+        \draw (0,2) -- (12,2);
+        \draw (1,3) -- (9,3);
+        \draw (10,1) -- (10,5);
+
+        \node at (5,5) {$uH(x,u)$};
+        \node at (11,5) {$H(x,u)$};
+      \end{tikzpicture}
+    }
+
+  \end{figure}
+
+
+    $$ \only<4-13>{\num_{213}(p)}  \uncover<4-13>{ = \binom{2}{2}}
+    \only<5-13>{ + \binom{2}{2}} \only<6-13>{ + \binom{3}{2}}
+    \only<7-13>{ + \binom{1}{2}} \only<8-13>{ = 5  }
+    \only<14->{H(x,u) = } 
+    \only<15->{ux (H(x,u) + 1) C(x) + xC(x) H(x,u)}  
+    $$ 
+
+
+
+\end{frame}
+
+
+\begin{frame}{Sketch of proof} 
+  
+  Let $h_{n,k}$ denote the total number of peaks at height
+  $k$ in all Dyck paths of semilength $n$. 
+  Let $H(x,u) = \sum_{n,k \geq 0} h_{n,k} x^n u^k$. 
+  
+  \vspace{2pc}
+
+  $$H(x,u) = \frac{uxC(x)}{1-uxC(x)-xC(x)}.$$
+  \pause
+  $$ A^*(x) = \sum_{n \geq 0} \binom{k}{2} h_{n-1,k} x^n$$
+  \pause
+  $$ \begin{aligned}
+    A^*(x) &= \frac{\left. x \partial_u ^2 H(x)\right|_{u=1}}{2} \\
+         \pause
+         &= \frac{x^3C(x)}{(1-4x)^{3/2}} \\ 
+         \pause
+         &= x^3 + 7x^4 + 38x^5 + 187^6 + \ldots
+      \end{aligned} $$
+    \pause
+    \begin{flushright} $ \qed $ \end{flushright}
+
+\end{frame}
+
+
+\begin{frame}{Corollaries}
+  \pause
+  \begin{corollary}
+    $$ \num_{231}(\Avn) = \num_{231}(\Av_n 132)$$
+  \end{corollary}
+\end{frame}
+
+
+\begin{frame}{Corollaries}
+
+    $$ A(x) = \frac{x-1}{2(1-4x)} - \frac{3x-1}{2(1-4x)^{3/2}}$$
+
+    $$B(x) = \frac{3x-1}{(1-4x)^{2}} - \frac{4x^2 - 5x +
+    1}{(1-4x)^{5/2}}$$
+
+    $$ D(x) =   \frac{ 8x^3 - 20x^2 + 8x - 1}{(1-4x)^{2}} 
+      - \frac{36x^3 - 34x^2 + 10x - 1}{(1-4x)^{5/2}} $$ 
+
+\end{frame}
+
+
+
+
+\begin{frame}{Corollaries}
+
+    $$ a_n = \frac{n+2}{4} \binom{2n}{n} - 3 \cdot 2^{2n-3} $$
+    \pause
+    $$ b_n = (2n-1) \binom{2n-3}{n-2} - (2n+1)\binom{2n-1}{n-1} + 
+       (n+4) \cdot 2^{2n-3}$$
+    \pause
+    $$ \begin{aligned} d_n 
+        &= \frac{1}{6} \binom{2n+5}{n+1} \binom{n+4}{2} 
+        - \frac{5}{3} \binom{2n+3}{n} \binom{n+3}{2} \\
+        &+ \frac{17}{3} \binom{2n+1}{n-1} \binom{n+2}{2} 
+        - 6\binom{2n-1}{n-2} \binom{n+1}{2} - (n+1) \cdot 4^{n-1}.
+      \end{aligned}
+    .$$
+
+\end{frame}
+
+
+\begin{frame}{Corollaries}
+
+  $$ a_n \sim \sqrt{\frac{n}{\pi}} 4^n$$
+  $$ b_n \sim \frac{n}{2} 4^n $$
+  $$ d_n \sim \frac{8}{3} \sqrt{\frac{n^3}{\pi}} 4^n. $$
+
+\end{frame}
+
+
+\begin{frame}{Larger patterns}
+  \pause
+  \begin{lemma}
+    $$ \begin{array}{ccccc}
+      2A(x) & + 2B(x) & + D(x) & = & \frac{x^3}{6} (C(x))'''\\
+      4A(x) & + 2B(x) & & =&  x^3(J(x)/x^2)' 
+      \end{array} $$
+  \end{lemma}
+  \pause
+  \begin{proposition}
+    For large enough $n$, the descending pattern of length $k$ occurs
+    more often than any other length $k$ pattern in $\Avn$. 
+  \end{proposition}
+\end{frame}
+
+
+
+\begin{frame}
+  \begin{block}{\hspace{6pc}\Large Thanks for listening!}
+  \end{block}
+\end{frame}
+
+
+\end{document}
