@@ -25,10 +25,8 @@ SECTIONS = [
         ('CV', 'pdfs/cv.pdf'),
         ]
 
-
 # folders containing static files
 STATIC_PATHS = ['images', 'pdfs']
-
 
 # how to create the slug (the short name for each article)
 SLUGIFY_SOURCE = 'basename'
@@ -36,7 +34,6 @@ SLUGIFY_SOURCE = 'basename'
 # how to organize the urls
 ARTICLE_URL = '{category}/{slug}/'
 ARTICLE_SAVE_AS = '{category}/{slug}/index.html'
-
 
 # Keep these at none to turn off feed stuff
 FEED_ATOM = None
@@ -47,8 +44,10 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
+# number of links per page
+DEFAULT_PAGINATION = 20
 
-# social media accounts --- setting these will create links in the footer
+# social media accounts -- setting these will create links in the footer
 GOOGLE_ANALYTICS_ACCOUNT = None
 MAIL_USERNAME = None
 MAIL_HOST = None
@@ -61,12 +60,9 @@ ARXIV_URL = None
 MENDELEY_URL = None
 
 # set my values for each of the variables above
+# (didn't want to put all my links in the public repo)
 cur_dir = os.path.dirname( os.path.realpath(__file__) )
 with open( os.path.join(cur_dir, 'private_vars.py') ) as f:
     text = f.read()
     exec(text)
-
-
-
-DEFAULT_PAGINATION = 20
 
