@@ -1,6 +1,6 @@
 Title: On the Effective and Automatic Enumeration of Polynomial Permutation Classes
 Excerpt: Journal of Symbolic Computation
-Date: 2013-1
+Date: 2016-1
 
 with [Vince Vatter](http://people.clas.ufl.edu/vatter/)
 

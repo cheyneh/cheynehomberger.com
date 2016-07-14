@@ -22,7 +22,7 @@ SECTIONS = [
         ('Talks', 'category/talks.html'),
         ('Teaching', 'category/teaching.html'),
         ('Software', 'category/software.html'),
-        ('CV', 'pdfs/cv.pdf'),
+        # ('CV', 'pdfs/cv.pdf'),
         ]
 
 # folders containing static files
